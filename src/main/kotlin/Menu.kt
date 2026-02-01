@@ -27,6 +27,7 @@ abstract class Menu<T: Menunable> (val title: String, val fisst_element: String,
     fun start() {
         while (true) {
             printMenu()
+            println("Введите пункт меню (Например, \"1\")")
             val line = inp.nextLine()
             var d: Int
             try {
