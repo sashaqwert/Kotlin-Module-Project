@@ -28,7 +28,7 @@ abstract class Menu<T: Menunable> (val title: String, val fisst_element: String,
         while (true) {
             printMenu()
             val line = inp.nextLine()
-            var d = -1
+            var d: Int
             try {
                 d = line.toInt()
             } catch (_: Exception) {
