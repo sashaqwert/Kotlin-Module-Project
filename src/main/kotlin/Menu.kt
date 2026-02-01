@@ -1,6 +1,6 @@
-open class Menu<T: Menunable> (val title: String, val fisst_element: String, val back: String = "Назад") {
+abstract class Menu<T: Menunable> (val title: String, val fisst_element: String, val back: String = "Назад") {
 
-    protected val items: ArrayList<T> = ArrayList()
+    var items: ArrayList<T> = ArrayList()  // var, чтобы можно было заменить во втором меню
 
     fun printTopMenu() {
         println(title)
@@ -17,7 +17,7 @@ open class Menu<T: Menunable> (val title: String, val fisst_element: String, val
                 println("${i}. ${items.get(i - 1).menu_name()}")
             }
         }
-        println("${items.size + 1}. Выход")
+        println("${items.size + 1}. $back")
     }
 
     open fun create() {
@@ -27,7 +27,25 @@ open class Menu<T: Menunable> (val title: String, val fisst_element: String, val
     fun start() {
         while (true) {
             printMenu()
-            //TODO: Вввод
+            val line = inp.nextLine()
+            var d = -1
+            try {
+                d = line.toInt()
+            } catch (_: Exception) {
+                println("Некорректный ввод. Ожидается число.")
+                continue
+            }
+            if (d == 0) {
+                create()
+            } else if (d == items.size + 1) {
+                break // Назад
+            } else {
+                procesItem(d - 1)
+            }
         }
+
     }
+
+    abstract fun procesItem(index: Int)
+
 }
