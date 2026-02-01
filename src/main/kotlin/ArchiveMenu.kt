@@ -13,7 +13,13 @@ class ArchiveMenu: Menu<Archive>("Список архивов", "Создать 
     }
 
     override fun procesItem(index: Int) {
-        val item = items.get(index)
+        val archive = items.get(index)
+        val noteMenu = NoteMenu()
+        noteMenu.items = archive.notes
+        noteMenu.start()
+        archive.notes = noteMenu.items
+        items.set(index, archive)
+
     }
 
 }
