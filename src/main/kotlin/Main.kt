@@ -21,14 +21,3 @@ fun menu_archive_list() {
     println("${archives.size + 1}. Выход")
 
 }
-
-fun create_archive() {
-    println("Введите название архива. Для отмены оставьте строку пустой.")
-    val name = inp.nextLine()
-    if (name != "") {
-        archives.add(Archive(name))
-        println("Архив создан.")
-    } else {
-        println("Создание архива отменено")
-    }
-}
