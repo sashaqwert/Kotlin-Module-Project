@@ -1,4 +1,3 @@
-import archives
 
 class ArchiveMenu: Menu<Archive>("Список архивов", "Создать архив", "Выход") {
 
@@ -11,6 +10,10 @@ class ArchiveMenu: Menu<Archive>("Список архивов", "Создать 
         } else {
             println("Создание архива отменено")
         }
+    }
+
+    override fun procesItem(index: Int) {
+        val item = items.get(index)
     }
 
 }
