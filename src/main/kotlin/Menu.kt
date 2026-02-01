@@ -39,6 +39,9 @@ abstract class Menu<T: Menunable> (val title: String, val fisst_element: String,
                 create()
             } else if (d == items.size + 1) {
                 break // Назад
+            } else if (d < 0 || d > items.size + 1) {
+                println("Такого пункта меню нет. Попробуйте ещё раз...")
+                continue
             } else {
                 procesItem(d - 1)
             }
