@@ -18,5 +18,6 @@ class NoteMenu: Menu<Note>("Список заметок", "Создать зам
 
     override fun procesItem(index: Int) {
         val item = items.get(index)
+        println(item)
     }
 }
